@@ -6,8 +6,8 @@ COOKIE_FILE=${WRKDIR}/galletita.txt
 #POST_LOGIN_FILE=${CONFIG}/post_login.txt
 #POST_ROUTER_RESTART=${CONFIG}/post_router_restart.txt
 IP_ADDR="192.168.1.1"
-USER="$1"
-PASS="$2"
+#USER="$1"
+#PASS="$2"
 
 # Usage
 usage () {
@@ -41,11 +41,14 @@ restart() {
 
 }
 
-if [ $# -ne 2 ] ; then
-    echo "Usage: ${0} [user] [password]"
-    exit 1
-fi
+# if [ $# -ne 2 ] ; then
+#     echo "Usage: ${0} [user] [password]"
+#     exit 1
+# fi
 
+echo "Cisco EPC3825"
+read -p "User: " USER
+read -s -p "Password: " PASS
 login
 restart
 rm -f ${COOKIE_FILE}
